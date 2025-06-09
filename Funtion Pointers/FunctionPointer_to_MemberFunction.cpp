@@ -14,6 +14,7 @@ public:
 int main(){
     Game g;
     void (Game::*commands[3])() = { &Game::start, &Game::pause, &Game::quit };
+
     int choice = 1;
     (g.*commands[choice])();  // Calls pause
 
