@@ -1,6 +1,15 @@
 #include <iostream>
 #include <memory>
-
+/*
+Use When:
+    ~You want to use different algorithms interchangeably.
+    ~You want to isolate each algorithm’s logic in its own class.
+    ~You want to avoid if-else/switch-case chains in business logic.
+Key Ideas:
+    `Context class holds a strategy interface
+    `Multiple strategy implementations
+    `Strategy can be changed dynamically
+*/
 class SortingStrategy {  //Interface 
 public:
     virtual void sort() = 0;
