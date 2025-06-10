@@ -1,6 +1,15 @@
 #include <iostream>
 #include <memory>
-
+/*
+Use When:
+    ~You want to decouple object creation from the client.
+    ~You have a common interface and multiple implementations.
+    ~The type to instantiate is determined at runtime.
+Key Ideas:
+    `Base class/interface
+    `Derived classes implementing the interface
+    `Factory decides which derived class to instantiate
+*/
 class Animal {
 public:
     virtual void speak() = 0;
