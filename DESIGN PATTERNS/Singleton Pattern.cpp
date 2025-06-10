@@ -1,6 +1,15 @@
 #include <iostream>
 #include <thread>
+/*
+Use When:
+    ~You need centralized state or resource management.
+    ~You want to limit creation to only one shared instance.
 
+Key Ideas:
+    `Private constructor
+    `Static instance method
+    `Prevents duplication (copy constructor deleted)
+*/
 class Singleton {
 private:
     Singleton() {
