@@ -1,0 +1,7 @@
+| Feature         | Singleton                   | Factory                              | Strategy                                 |
+| --------------- | --------------------------- | ------------------------------------ | ---------------------------------------- |
+| Purpose         | Ensure one instance         | Create objects via interface         | Switch between interchangeable behaviors |
+| Key Mechanism   | Static instance             | Encapsulation of instantiation logic | Polymorphism + delegation                |
+| Client Role     | Uses a global instance      | Asks factory for object              | Sets and uses strategy dynamically       |
+| Flexibility     | Not flexible (one instance) | Medium (runtime creation)            | High (swap logic anytime)                |
+| Common Use Case | Logger, Config              | Parsers, GUI widgets                 | Sorting, payment, behavior control       |
