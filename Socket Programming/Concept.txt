@@ -1,0 +1,89 @@
+Day 5/365  
+
+Socket programming (the lack of skill that rejected me in almost all interviews)  
+
+What is socket programming?
+
+> It's a way to enable communication between 2 systems (client & server)  
+> It involves sockets as endpoints for sending and receiving data.
+
+Flow of socket programming:
+
+> Socket APIs create a connection between 2 programs (1 & 2) on a running network  
+> Program 1 receives data by listening to a particular port  
+> Program 2 sends the data
+
+GK: Sockets are generally hosted on different application parts.  
+    Sockets allow bidirectional data.
+
+Two types of sockets: STREAM sockets (TCP) & DATAGRAM sockets (UDP)  
+
+STREAM: Reliable, connection-based communication. Ensures data is sent & received in order, with no loss/duplication.  
+DATAGRAM: Unreliable, connectionless. Doesn’t guarantee reliable delivery, transfers data in independent packets.
+
+========================================
+
+Server-side socket (listening for connection):  
+
+1. socket()  
+   - Syntax: `int socket(int domain, int type, int protocol);`  
+   - Creates a new TCP socket (defined in `<sys/socket.h>`)
+
+2. bind()  
+   - Syntax: `int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`  
+   - Binds socket to a specific address and port for incoming connections
+
+3. listen()  
+   - Syntax: `int listen(int sockfd, int backlog);`  
+   - Makes the socket passive and ready to accept connections
+
+4. accept()  
+   - Syntax: `int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);`  
+   - Accepts a new client connection and returns a new socket descriptor
+
+==========================================
+
+Client-side socket:
+
+1. connect()  
+   - Syntax: `int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`  
+   - Connects the socket to a server
+
+2. send()  
+   - Syntax: `ssize_t send(int sockfd, const void *buf, size_t len, int flags);`  
+   - Sends data through the connected socket
+
+3. recv()  
+   - Syntax: `ssize_t recv(int sockfd, void *buf, size_t len, int flags);`  
+   - Receives data from the connected socket
+
+-------------------------------------------------------------
+
+Closing client socket:
+
+close()  
+- Syntax: `int close(int sockfd);`  
+- Closes the socket file descriptor
+
+-------------------------------------------------------------
+
+Header files used:
+
+1. WINDOWS  
+<winsock2.h>  
+<ws2tcpip.h>  
+<windows.h>
+
+2. LINUX  
+<sys/socket.h>  
+<netinet/in.h>  
+<arpa/inet.h>  
+<unistd.h>  
+<string.h>  
+<errno.h>
+
+-------------------------------------------------------------
+
+Why was socket programming needed?
+
+Before sockets, programs worked in isolation on one machine. As systems got networked (rise of the internet), client-server communication became essential. Socket programming enables inter-process communication over a network using standard protocols.
