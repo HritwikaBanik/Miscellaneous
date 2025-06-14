@@ -27,6 +27,7 @@ void handle_client(int client_sock) {
     close(client_sock);
 }
 
+
 int main(int argc, char* argv[]) {
     int port = DEFAULT_PORT;
     if (argc == 2) {
